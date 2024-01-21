@@ -20,14 +20,15 @@ formulario.onsubmit = () => {
             dicaText.innerHTML = ('Este palpite já foi dado champs!');
             formulario.reset();
             return;
+            
         }
         
         if(palpite.value < numeroRandomico){
-            let fraseAleatoria = (frasesDicas[Math.floor(Math.random() * Number(frasesDicas.length))]);
-            dicaText.innerHTML = `<strong>${fraseAleatoria}</strong> É um número menor que esse...`;
+            let fraseAleatoria = (frasesDicas[Math.floor(Math.random() * frasesDicas.length)]);
+            dicaText.innerHTML = `<strong>${fraseAleatoria}</strong> É um número maior que esse...`;
         }else{
-            let fraseAleatoria = frasesDicas[Math.floor(Math.random() * Number(frasesDicas.length))];
-        dicaText.innerHTML = `<strong>${fraseAleatoria}</strong> É um número maior que esse...`;
+            let fraseAleatoria = frasesDicas[Math.floor(Math.random() * frasesDicas.length)];
+        dicaText.innerHTML = `<strong>${fraseAleatoria}</strong> É um número menor que esse...`;
         }
         
         palpites.push(palpite.value);
