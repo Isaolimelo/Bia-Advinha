@@ -146,7 +146,7 @@ body{
     }
 
     .containerUp h1{
-        width: 336px;
+        width: calc(100% - 32px);
         padding: 20px;
         text-align: center;
     }
