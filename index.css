@@ -72,12 +72,12 @@ body{
     border-radius: 15px;
 }
 .containerDown1 input:hover{
-    background-color: #FFB43120;
+    background-color: #FFB43130;
     transition: .3s;
 }
 
 .containerDown1 input:focus{
-    background-color: #FFB43140;
+    background-color: #FFB43150;
     transition: .5s;
 }
 .dica{
@@ -126,4 +126,42 @@ body{
 #again:hover{
     background-color: #FFB431;
     transition: .5s;
+}
+
+
+ @media only screen and (max-width: 600px) {
+
+    .container{
+        width: 336px;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .containerUp{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .containerUp h1{
+        width: 336px;
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .containerUp img{
+        margin-top: 10px;
+
+    }
+
+    .containerDown1 form {
+        flex-direction: column;
+    }
+
+    .containerDown1 input {
+        margin-top: 10px;
+        width: 140px;
+    }
 }
