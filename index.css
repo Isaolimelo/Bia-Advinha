@@ -102,8 +102,9 @@ body{
     color: #ffab1a;
 }
 
-.containerDown2 h3{
+.containerDown2 #tittlePalpitesAnteriores{
     padding-right: 8px;
+    display: none;
 }
 #again{
     display: none;

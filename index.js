@@ -16,24 +16,35 @@ formulario.onsubmit = () => {
             return;
         }
     
-        if(palpites.includes(palpite.value)){
-            dicaText.innerHTML = ('Este palpite já foi dado champs!');
-            formulario.reset();
-            return;
-            
+        let palpiteExistente = false;
+
+        for (let i = 0; i < palpites.length; i++) {
+            if (palpites[i] === palpiteAtual) {
+                palpiteExistente = true;
+                break;
+            }
         }
+        
         
         if(palpite.value < numeroRandomico){
             let fraseAleatoria = (frasesDicas[Math.floor(Math.random() * frasesDicas.length)]);
             dicaText.innerHTML = `<strong>${fraseAleatoria}</strong> É um número maior que esse...`;
         }else{
             let fraseAleatoria = frasesDicas[Math.floor(Math.random() * frasesDicas.length)];
-        dicaText.innerHTML = `<strong>${fraseAleatoria}</strong> É um número menor que esse...`;
+            dicaText.innerHTML = `<strong>${fraseAleatoria}</strong> É um número menor que esse...`;
+        }
+
+        if (palpites.length < 0) {
+            // tittlePalpitesAnteriores.innerHTML = palpites.join(' - ');
+            tittlePalpitesAnteriores.style.display = 'none'; // ou 'inline' ou outra propriedade de exibição desejada
+        } else {
+            tittlePalpitesAnteriores.style.display = 'block';
         }
         
         palpites.push(palpite.value);
         palpitesAnteriores.innerHTML = palpites.join(' - ');
         formulario.reset();
+
         
     }else{
         again.classList.add('active');
@@ -46,3 +57,5 @@ formulario.onsubmit = () => {
 again.onclick = () => {
     window.location.reload();
 }
+
+
