@@ -15,13 +15,21 @@ formulario.onsubmit = () => {
             return;
         }
 
-        let palpiteExistente = palpites.includes(palpiteAtual);
+        let palpiteExistente = false;
 
-        if (palpiteExistente) {
-            dicaText.innerHTML = ('Este palpite já foi dado Champs!');
-            formulario.reset();
-            return;
-        }
+for (let i = 0; i < palpites.length; i++) {
+    if (palpites[i] === palpiteAtual) {
+        palpiteExistente = true;
+        break;
+    }
+}
+
+if (palpiteExistente) {
+    dicaText.innerHTML = ('Este palpite já foi dado Champs!');
+    formulario.reset();
+    return;
+}
+
 
         if (palpiteAtual < numeroRandomico) {
             let fraseAleatoria = frasesDicas[Math.floor(Math.random() * frasesDicas.length)];
