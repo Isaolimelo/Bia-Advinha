@@ -23,14 +23,7 @@ formulario.onsubmit = (event) => {
             return;
         }
 
-        let palpiteExistente = false;
-
-        for (let i = 0; i < palpites.length; i++) {
-            if (palpites[i] === palpiteAtual) {
-                palpiteExistente = true;
-                break;
-            }
-        }
+        let palpiteExistente = palpites.includes(palpiteAtual);
 
         if (palpiteExistente) {
             dicaText.innerHTML = ('Este palpite já foi dado Champs!');
@@ -46,7 +39,7 @@ formulario.onsubmit = (event) => {
             dicaText.innerHTML = `<strong>${fraseAleatoria}</strong> É um número menor que esse...`;
         }
 
-        palpites[palpites.length] = palpiteAtual;
+        palpites.push(palpiteAtual);
         palpitesAnteriores.innerHTML = palpites.join(' - ');
         formulario.reset();
     } else {
@@ -55,7 +48,8 @@ formulario.onsubmit = (event) => {
         bia.src = "bia_triste.svg";
     }
 
-   if (palpites.length > 0) {
+    // Exibir ou ocultar tittlePalpitesAnteriores
+    if (palpites.length > 0) {
         tittlePalpitesAnteriores.style.display = 'block';
     } else {
         tittlePalpitesAnteriores.style.display = 'none';
